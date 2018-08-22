@@ -11,9 +11,11 @@ export default class App extends React.Component {
   async componentWillMount() {
     try {
       const res = await fetch('https://syoto-test.herokuapp.com/test');
-      this.setState({ agent: await res.toJson() });
+      console.log(res);
+      const { agent } = await res.json();
+      this.setState({ agent });
     } catch (e) {
-      this.setState({ agent: e });
+      this.setState({ agent: 'ERROR' });
     }
   }
 
