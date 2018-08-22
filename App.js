@@ -1,24 +1,23 @@
 import React from 'react';
-import { Platform, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import fetch from 'react-native-fetch-polyfill';
 
-const host = Platform.select({
-  android: '10.0.2.2',
-  ios: 'localhost',
-});
-
-const port = '3000';
-
 export default class App extends React.Component {
-  componentWillMount() {
-    const url = `http://${host}:${port}/test`;
-    fetch(url);
+  constructor(props) {
+    super(props);
+    this.state = { agent: '-' };
+  }
+
+  async componentWillMount() {
+    const res = await fetch('https://syoto-test.herokuapp.com/test');
+    this.setState({ gent: await res.toJson() });
   }
 
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Text>Welcome to React Native!</Text>
+        <Text style={{ fontSize: 24 }}>{this.state.agent}</Text>
       </View>
     );
   }
