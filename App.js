@@ -12,11 +12,13 @@ export default class App extends React.Component {
 
   getUserAgent = async () => {
     try {
+      this.setState({ agent: '...通信中' });
       const res = await fetch(url);
       console.log(res);
       const { agent } = await res.json();
       this.setState({ agent });
     } catch (e) {
+      console.log(e);
       this.setState({ agent: 'ERROR' });
     }
   };
