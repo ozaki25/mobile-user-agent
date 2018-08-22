@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/test', (req, res) => {
-  console.log('test!');
+  console.log(req.headers['user-agent']);
   return res.send('test!');
 });
 
