@@ -3,10 +3,11 @@ const express = require('express');
 const app = express();
 
 app.get('/test', (req, res) => {
-  console.log(req.headers['user-agent']);
-  return res.send('test!');
+  const agent = req.headers['user-agent'];
+  console.log(agent);
+  return res.send({ agent });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log('app start!');
 });
