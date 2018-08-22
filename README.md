@@ -20,6 +20,19 @@ node -v
 npm -v
 ```
 
+- react-native-cliが入っていること
+  - 以下のコマンドでバージョンが表示されること
+
+```
+react-native -v
+```
+
+- 入ってなければ以下のコマンドでインストール
+
+```
+npm i -g react-native-cli
+```
+
 ## 検証手順
 
 ### セットアップ
