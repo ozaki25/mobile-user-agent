@@ -19,8 +19,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={{ flex: 1 }}>
-        <Text>Welcome to React Native!</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <Text style={{ fontSize: 24 }}>{this.state.agent}</Text>
       </View>
     );
