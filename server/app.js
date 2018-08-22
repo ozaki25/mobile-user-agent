@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/test', (req, res) => {
+  console.log('test!');
   return res.send('test!');
 });
 
